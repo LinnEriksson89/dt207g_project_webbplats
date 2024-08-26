@@ -1,0 +1,15 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+
+//General layout for buttons.
+
+input.button {
+    background-color: $button-background-color;
+    color: $button-text-color;
+    border: $button-border;
+    border-radius: $button-border-radius;
+    padding: 1%;
+    margin: 1%;
+}

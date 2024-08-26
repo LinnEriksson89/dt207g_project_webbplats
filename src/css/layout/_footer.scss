@@ -1,0 +1,30 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+ 
+//Layout of footer.
+footer {
+    background: $dark-secondary-color;
+    padding: $general-padding;
+    margin: 0;
+
+    p {
+        width: 100%;
+        text-align: center;
+        color: $light-primary-color;
+
+        a {
+            color: $light-primary-color;
+        }
+    }
+
+    p.right {
+        text-align: right;
+        color: $light-primary-color;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

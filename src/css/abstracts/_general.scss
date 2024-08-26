@@ -1,0 +1,11 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+
+//General settings such as border-box etc.
+html {
+    /*62.5% of 16px => 10px*/
+    font-size: 62.5%;
+    box-sizing: border-box;
+}

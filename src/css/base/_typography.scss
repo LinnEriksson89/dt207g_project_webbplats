@@ -1,0 +1,54 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+ 
+//Headers and their sizes.
+h1 {    
+    @include headerText;
+    font-size: 3.2em;
+}
+ 
+h2 {
+    @extend h1;
+    font-size: 2.4em;
+}
+ 
+h3 {
+    @extend h1;
+    font-size: 1.8em;
+}
+
+h4 {
+    @extend h1;
+    font-size: $normal-font-size;
+    border-bottom: 2px solid $red-details;
+}
+
+h5 {
+    @extend h1;
+    font-size: $normal-font-size;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+//Body text in paragraphs and lists.
+p, ul {
+    @include standardText;
+
+    a {
+        color: $dark-secondary-color;
+    }
+}
+
+//Text in forms.
+form {
+    @include standardText;
+}
+
+@media only screen and (min-width: $screen-min-width){
+    //Shorter paragraphs for increased readability on larger screens.
+    p {
+        width: 70%;
+    }
+}

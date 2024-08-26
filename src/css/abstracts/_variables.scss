@@ -1,0 +1,40 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+ 
+//Variables used in other files.
+
+//Importing fonts.
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Domine:wght@400..700&display=swap');
+
+//Colors
+$theme-primary-color: #f1f1f1;
+$dark-primary-color: scale-color($theme-primary-color, $lightness: -50%);
+$light-primary-color: scale-color($theme-primary-color, $lightness: 50%);
+
+$theme-secondary-color: #000;
+$dark-secondary-color: scale-color($theme-secondary-color, $lightness: -50%);
+$light-secondary-color: scale-color($theme-secondary-color, $lightness: 50%);
+
+$red-details: #E61D2B;
+
+//Buttons
+$button-background-color: $dark-secondary-color;
+$button-text-color:  $theme-primary-color;
+$button-border-color:  $theme-primary-color;
+$button-border-radius: 10px;
+$button-border: 1px solid $button-border-color;
+
+//Fonts
+$serif-font: "Domine", Georgia, serif;
+$sans-serif-font: "Courgette", Verdana, sans-serif;
+
+//Variable for "normal body text".
+$normal-font-size: 1.6em;
+
+//Variable for media-query related to "full screen".
+$screen-min-width: 750px;
+
+//Variable for general padding.
+$general-padding: 2%;

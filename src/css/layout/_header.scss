@@ -1,0 +1,20 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+
+//Layout for header.
+header {
+    background: $theme-secondary-color;
+    padding: $general-padding;
+    margin: 0;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+
+        h1 {
+            color: $theme-primary-color;
+        }
+    }
+}

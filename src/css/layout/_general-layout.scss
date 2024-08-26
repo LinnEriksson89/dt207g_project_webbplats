@@ -1,0 +1,33 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+ 
+//General layout of page.
+
+//Background color.
+body {
+    background: $light-primary-color;
+    background: url("../images/background.jpg") repeat;
+}
+
+#wrapper {
+    background: $theme-primary-color;
+}
+
+main {
+    padding: 1%;
+}
+
+//Layout for larger screens.
+@media only screen and (min-width: $screen-min-width){
+    #wrapper {
+        max-width: 1000px;
+        border: 2px solid $theme-secondary-color;
+        margin: auto;
+    }
+    
+    main {
+        padding: $general-padding;
+    }
+}
