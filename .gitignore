@@ -1,0 +1,5 @@
+#Ignoring folders
+node_modules/
+pub/
+
+#Ignoring files
