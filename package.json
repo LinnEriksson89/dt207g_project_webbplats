@@ -1,0 +1,37 @@
+{
+  "name": "dt207g_project_webbplats",
+  "version": "1.0.0",
+  "description": "Main webbsite of project in DT207G",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Hello World!\"",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinnEriksson89/dt207g_project_webbplats.git"
+  },
+  "author": "Linn Eriksson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LinnEriksson89/dt207g_project_webbplats/issues"
+  },
+  "homepage": "https://github.com/LinnEriksson89/dt207g_project_webbplats#readme",
+  "devDependencies": {
+    "browser-sync": "^2.29.1",
+    "gulp-ejs": "^5.1.0",
+    "gulp-html-minifier-terser": "^7.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify-es": "^3.0.0",
+    "nodemon": "^3.1.4",
+    "sass": "^1.62.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "gulp": "^4.0.0",
+    "gulp-cli": "^3.0.0"
+  }
+}
