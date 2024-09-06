@@ -1,5 +1,7 @@
 #Ignoring folders
 node_modules/
+public/
+views/
 
 #Ignoring files
 .env
