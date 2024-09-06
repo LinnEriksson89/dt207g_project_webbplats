@@ -5,3 +5,6 @@ views/
 
 #Ignoring files
 .env
+
+#Not ignoring folders.
+!src/views/
