@@ -17,4 +17,12 @@ header {
             color: $theme-primary-color;
         }
     }
+
+    //Styling class of p that's only used in header.
+    p.fancy {
+        @extend p;
+        color: $theme-primary-color;
+        font-family: $sans-serif-font;
+        width: 100%;
+    }
 }

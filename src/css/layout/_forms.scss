@@ -1,0 +1,31 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+
+//Styling of forms.
+fieldset {
+    max-width: 500px;
+    border: 2px solid $dark-secondary-color;
+    font-weight: bold;
+}
+
+label {
+    padding: $general-padding;
+    width: 95%;
+    padding: 0;
+    font-weight: normal;
+}
+
+input[type=text] {
+    width: 95%;
+    margin-bottom: 3%;
+    padding: 1%;
+    background-color: $theme-primary-color;
+    border: 2px solid $dark-secondary-color;
+    border-radius: 10px;
+}
+
+input[type=text]:focus {
+    background-color: $light-secondary-color;
+}

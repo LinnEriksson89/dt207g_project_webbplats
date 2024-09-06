@@ -41,8 +41,8 @@ p, ul {
     }
 }
 
-//Text in forms.
-form {
+//Text in forms and tables.
+form, table {
     @include standardText;
 }
 

@@ -29,7 +29,7 @@ nav {
             }
         }
 
-        li:hover {
+        li:hover, .current {
             background: $theme-primary-color;
             border: 2px solid $theme-secondary-color;
             a {
@@ -37,13 +37,27 @@ nav {
             }
         }
     }
+}
 
-   
-
-    //Make a navigation bar on larger screens. 
-    @media only screen and (min-width: $screen-min-width){
-        li {
-            float: left;
+//Make a navigation bar on larger screens. 
+@media only screen and (min-width: $screen-min-width){
+    nav {
+        border-top: 5px solid $theme-secondary-color;
+        border-bottom: 10px solid $theme-primary-color;
+        padding: 0 $general-padding;
+        
+        ul {
+            li {
+                float: left;
+                margin: 10px 0 0 0;
+                border-radius: 10px 10px 0 0;
+                padding: $general-padding;
+            }
+    
+            li.current {
+                border: 2px solid $theme-primary-color;
+    
+            }
         }
     }
 }

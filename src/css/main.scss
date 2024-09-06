@@ -25,11 +25,14 @@
     'layout/general-layout',
     'layout/header',
     'layout/navigation',
+    'layout/forms',
     'layout/footer';
 
 // 5. Components
 @import
-    'components/buttons';
+    'components/buttons',
+    'components/skiplink',
+    'components/adminlink';
 
 // 6. Page-specific
 

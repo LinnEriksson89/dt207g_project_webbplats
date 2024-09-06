@@ -1,0 +1,24 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+
+//Specific styling of admin-link in header.
+//Setting header to relative just to be able to move the a with absolute.
+header {
+    position: relative;
+
+    //styling of a with class used for link.
+    a.adminlink {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        font-size: 25px;
+        color: $theme-primary-color;
+        text-decoration: none;
+    }
+
+    a.adminlink:focus, a.adminlink:hover {
+        color: $red-details;
+    }
+}
