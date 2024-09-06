@@ -36,7 +36,6 @@ function imageTask() {
 //ejs-task
 function ejsTask() {
     return src(files.ejsPath)
-    .pipe(ejs())
     .pipe(dest("views"))
 }
 

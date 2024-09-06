@@ -19,7 +19,6 @@
   "homepage": "https://github.com/LinnEriksson89/dt207g_project_webbplats#readme",
   "devDependencies": {
     "browser-sync": "^3.0.2",
-    "gulp-ejs": "^5.1.0",
     "gulp-html-minifier-terser": "^7.1.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.5",
