@@ -8,7 +8,6 @@ const {src, dest, watch, series, parallel} = require("gulp");
 const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass')(require('sass'));
-const ejs = require("gulp-ejs");
 
 //Paths
 const files = {
