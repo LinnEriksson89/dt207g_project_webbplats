@@ -13,7 +13,8 @@ const sass = require('gulp-sass')(require('sass'));
 const files = {
     sassPath: "src/css/**/*.scss",
     imagePath: "src/images/*",
-    ejsPath: "src/views/*.ejs"
+    ejsPath: "src/views/*.ejs",
+    partialsPath: "src/views/partials/*ejs"
 }
 
 //SASS-task
@@ -37,6 +38,12 @@ function ejsTask() {
     return src(files.ejsPath)
     .pipe(dest("views"))
 }
+//partials task
+function partialsTask() {
+    return src(files.partialsPath)
+    .pipe(dest("views/partials"))
+}
+
 
 //Watcher
 function watchTask() {
@@ -45,13 +52,13 @@ function watchTask() {
         server: "/"
     });
 
-    watch([files.sassPath, files.imagePath, files.ejsPath],
-    parallel(sassTask, imageTask, ejsTask))
+    watch([files.sassPath, files.imagePath, files.ejsPath, files.partialsPath],
+    parallel(sassTask, imageTask, ejsTask, partialsTask))
     .on('change', browserSync.reload);
 }
 
 //Run all tasks above
 exports.default = series(
-    parallel(sassTask, imageTask, ejsTask),
+    parallel(sassTask, imageTask, ejsTask, partialsTask),
     watchTask
 );
