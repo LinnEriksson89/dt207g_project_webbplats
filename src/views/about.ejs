@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="sv">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Vägkrogen</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-    <div id="wrapper">
-        <header>
-            <a href="#maincontent" class="skiplink button">Gå till huvudinnehåll</a>
-            <a href="index">
-                <h1>Vägkrogen</h1>
-            </a>
-            <p class="fancy">En klassisk vägkrog!</p>
-            <a href="admin" class="fa fa-heart adminlink"></a>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="index">Startsida</a></li>
-                <li class="current"><a href="about">Om oss</a></li>
-                <li><a href="menu">Meny</a></li>
-            </ul>
-        </nav>
-        <main>
+<%- include('./partials/header')  %>
             <h2>Om oss</h2>
             <p>Vi är ett familjeägt företag som slog upp portarna redan 1956 och som nu drivs av tredje generationen
                 från familjen Andersson.</p>
@@ -36,18 +7,4 @@
                 internet och erbjuder till exempel förhandsbokning av take away-mat, men det är fortfarande samma goda
                 recept från Karins receptsamling som ligger till grund för våra menyer!</p>
             <p>Välkommen att stanna till hos oss om du har vägarna förbi!</p>
-        </main>
-        <footer>
-            <p>Besök oss gärna vid trafikplats Mora Stenar, avfart 185 på E4an.</p>
-            <p class="right">
-                <a href="#" class="fa fa-facebook-square fa-lg"></a>
-                <a href="#" class="fa fa-instagram fa-lg"></a>
-                <a href="#" class="fa fa-snapchat-square fa-lg"></a>
-                <a href="#" class="fa fa-tripadvisor fa-lg"></a>
-                <a href="#" class="fa fa-whatsapp fa-lg"></a>
-            </p>
-        </footer>
-    </div>
-</body>
-
-</html>
+<%- include('./partials/footer')  %>
