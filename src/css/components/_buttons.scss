@@ -6,10 +6,34 @@
 //General layout for buttons.
 
 .button {
+    @include standardText;
     background-color: $button-background-color;
     color: $button-text-color;
     border: $button-border;
     border-radius: $button-border-radius;
     padding: 10px 15px;
     margin: 1%;
+}
+
+//Make the links on the menu page float left in case they are too wide
+//Make them look more like buttons.
+//Make them sticky so they can be used even when scrolling, and to look like a navbar they need background.
+#menuButtons {
+    position: sticky;
+    top: 0;
+    background-color: $theme-primary-color;
+
+    .button {
+        float: left;
+        text-decoration: none;
+        font-size: 1.6em;
+    }
+}
+
+
+//Remove float after row of buttons.
+#menuButtons::after {
+    content: "";
+    clear: both;
+    display: table;
 }
