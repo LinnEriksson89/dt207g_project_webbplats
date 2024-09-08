@@ -5,6 +5,7 @@ views/
 
 #Ignoring files
 .env
+test.js
 
 #Not ignoring folders.
 !src/views/
