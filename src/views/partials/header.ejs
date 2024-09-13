@@ -27,7 +27,8 @@
                 <li <% if(current == "menu") {%> class="current" <% } %>><a href="menu">Meny</a></li>
                 <% if(current == "login") {%> <li class="current"><a href="login">Logga in</a></li> <% } %>
                 <% if(current == "admin") {%> <li class="current"><a href="admin">Admin</a></li> <% } %>
+                <% if(loggedin == "admin" || current == "admin") {%> <li><a href="logout">Logga ut</a></li> <% } %>
                 <% if(current == "404") {%> <li class="current"><a href="404">Kattbild</a></li> <% } %>
             </ul>
         </nav>
-        <main id="maincontent">
+        <main id="maincontent" <% if(loggedin == "admin") {%> class="admin"<% } %>>

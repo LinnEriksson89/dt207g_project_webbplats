@@ -1,3 +1,208 @@
 <%- include('./partials/header')  %>
-            <h2>Administrera menyer:</h2>
+        <% if (admin == "undefined") { %>
+            <h2>Välkommen till admin-sidan!</h2>
+            <p class="error">En eller flera delar av sidan kunde inte hämtas från databasen, därför visas ingen information.</p>
+        <% } else if (admin == "test") { %>
+         
+        <h2>Test success!</h2>
+        
+            <% } else { %>
+            <section>
+                <h2>Välkommen till admin-sidan!</h2>
+                <p>Här nedan visas tabeller för alla rätter och kategorier som finns på menyn. 
+                    Dessa kan redigeras och raderas med knapparna i tabellen.
+                </p>
+                <p>För att lägga till nya rätter användas formulären under respektive tabell.</p>    
+            </section>
+            <div id="adminbuttons">
+                <a href="#foodstable" class="button">Se kategorirätter</a><br>
+                <a href="#foodsform" class="button">Lägg till kategorirätt</a><br>
+                <a href="#lunchtable" class="button">Se lunchrätter</a><br>
+                <a href="#lunchform" class="button">Lägg till lunchrätt</a><br>
+                <a href="#categoriestable" class="button">Se kategorier</a><br>
+                <a href="#categoriesform" class="button">Lägg till kategorier</a><br>
+                <a href="#maincontent" class="button" id="topbutton">Tillbaka till toppen</a>
+            </div>
+
+            <section id="foodstable">
+                <h3>Maträtter i kategorier</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Kategori</th>
+                            <th>Namn</th>
+                            <th>Pris</th>
+                            <th>Beskrivning</th>
+                            <th>Allergier</th>
+                            <th>Uppdatera</th>
+                            <th>Radera</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% foods.forEach((item) => { %>
+                        <tr>
+                            <td><%= item.item_id %></td>
+                            <td id="food_cat<%= item.item_id %>" contenteditable><%= item.category_id %></td>
+                            <td id="food_name<%= item.item_id %>" contenteditable><%= item.name %></td>
+                            <td id="food_price<%= item.item_id %>" contenteditable><%= item.price %></td>
+                            <td id="food_desc<%= item.item_id %>" contenteditable><%= item.description %></td>
+                            <td id="food_allergens<%= item.item_id %>" contenteditable><%= item.allergens %></td>
+                            <td><a href="admin/updatefood/<%= item.item_id %>" class="update button food_update" data-id="<%= item.item_id %>">Uppdatera</a></td>
+                            <td><a href="admin/deletefood/<%= item.item_id %>" class="delete button food_delete" data-id="<%= item.item_id %>">Radera</a></td>
+                            <td><span class="message" id="food_message<%= item.item_id %>"></span></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="foodsform">
+                <h3>Lägg till ny maträtt i kategori</h3>
+                <form action="/admin" method="POST">
+                    <fieldset>
+                        <label for="food_name">Namn:</label>
+                        <input type="text" id="food_name" name="food_name" maxlength="32" required><br>
+                        <label for="food_cat">Kategori:</label>
+                        <select name="food_cat" id="food_cat">
+                            <option value="0" selected></option>
+                            <% categories.forEach(cat=> { %>
+                                <option value="<%= cat.category_id %>"><%= cat.name %></option>
+                            <% }) %>
+                        </select>
+                        <br>
+                        <label for="food_price">Pris:</label>
+                        <input type="text" id="food_price" name="food_price" min="1" max="999" required><br>
+                        <label for="food_desc">Beskrivning:</label>
+                        <input type="text" id="food_desc" name="food_desc" maxlength="128"><br>
+                        <label for="food_allergens">Allergener:</label>
+                        <input type="text" id="food_allergens" name="food_allergens" maxlength="256"><br>
+                        <input type="hidden" id="formId" name="formId" value="1">
+                        <br>
+                        <br>
+                        <input type="reset" class="button" value="Rensa">
+                        <input type="submit" class="button" id="food_create" value="Skicka">
+                        <br>
+                        <span class="message" id="food_createmessage"><%= food_message %></span>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section id="lunchtable">
+                <h3>Lunchrätter</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Namn</th>
+                            <th>Beskrivning</th>
+                            <th>Allergener</th>
+                            <th>Veckodag</th>
+                            <th>Prio</th>
+                            <th>Uppdatera</th>
+                            <th>Radera</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% lunches.forEach((item) =>{ %>
+                        <tr>
+                            <td><%= item.item_id %></td>
+                            <td id="lunch_name<%= item.item_id %>" contenteditable><%= item.name %></td>
+                            <td id="lunch_desc<%= item.item_id %>" contenteditable><%= item.description %></td>
+                            <td id="lunch_allergens<%= item.item_id %>" contenteditable><%= item.allergens %></td>
+                            <td id="lunch_day<%= item.item_id %>" contenteditable><%= item.lunchday %></td>
+                            <td id="lunch_prio<%= item.item_id %>" contenteditable><%= item.lunchprio %></td>
+                            <td><a href="admin/updatelunch/<%= item.item_id %>" class="button update lunch_update" data-id="<%= item.item_id %>">Uppdatera</a></td>
+                            <td><a href="admin/deletelunch/<%= item.item_id %>" class="button delete lunch_delete" data-id="<%= item.item_id %>">Radera</a></td>
+                            <td><span class="message" id="lunch_message<%= item.item_id %>"></span></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="lunchform">
+                <h3>Lägg till ny lunchrätt</h3>
+                <p>En lunchrätt måste ha ett namn på 4-32 tecken. Beskrivning får vara max 128 tecken och rekommenderas. Allergener får vara max 256 tecken.</p>
+                <p>Veckodag avser vilken veckodag rätten bör serveras, tex att ärtsoppa serveras på torsdagar. Om ingen veckodag anges kan rätten serveras vilken dag som helst.</p>
+                <p>Prioritet anger hur stor chans det är att rätten kommer med på nästa genererade veckomeny. Om inget värde anges kommer rätten att få högsta prioritet.</p>
+                <form action="/admin" method="POST">
+                    <fieldset>
+                        <label for="lunch_name">Namn:</label>
+                        <input type="text" id="lunch_name" name="lunch_name" maxlength="32"required ><br>
+                        <label for="lunch_desc">Beskrivning:</label>
+                        <input type="text" id="lunch_desc" name="lunch_desc" maxlength="128"><br>
+                        <label for="lunch_allergens">Allergener:</label>
+                        <input type="text" id="lunch_allergens" name="lunch_allergens" maxlength="256"><br>
+                        <label for="lunch_day">Veckodag:</label>
+                        <select name="lunch_day" id="lunch_day">
+                            <% weekdays.forEach(day => { %>
+                                <option value="<%= day.pos %>"><%= day.name %></option>                      
+                            <% }) %>
+                        </select>
+                        <br>
+                        <label for="lunch_prio">Prioritet:</label>
+                        <select name="lunch_prio" id="lunch_prio">
+                            <% prio.forEach(item => { %>
+                                <option value="<%= item.pos %>"><%= item.name %></option>
+                            <% }) %>
+                        </select>
+                        <input type="hidden" id="formId" name="formId" value="2">
+                        <br>
+                        <br>
+                        <input type="reset" class="button" value="Rensa">
+                        <input type="submit" class="button" id="lunch_create" value="Skicka">
+                        <br>
+                        <span class="message" id="lunch_createmessage"><%= lunch_message %></span>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section id="categoriestable">
+                <h3>Kategorier</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Namn</th>
+                            <th>Beskrivning</th>
+                            <th>Uppdatera</th>
+                            <th>Radera</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% categories.forEach((item) =>{ %>
+                        <tr>
+                            <td><%= item.category_id %></td>
+                            <td id="cat_name<%= item.category_id %>" contenteditable><%= item.name %></td>
+                            <td id="cat_desc<%= item.category_id %>" contenteditable><%= item.description %></td>
+                            <td><a href="admin/updatecat/<%= item.category_id %>" class="button update cat_update" data-id="<%= item.category_id %>">Uppdatera</a></td>
+                            <td><a href="admin/deletecat/<%= item.category_id %>" class="button delete cat_delete" data-id="<%= item.category_id %>">Radera</a></td>
+                            <td><span class="message" id="cat_message<%= item.category_id %>"></span></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="categoriesform">
+                <h3>Lägg till ny kategori</h3>
+                <p>Namn på kategorin måste vara 4-32 tecken långt. Beskrivningen av kategorin får vara max 128 tecken och är valfri.</p>
+                <form action="/admin" method="POST">
+                    <fieldset>
+                        <label for="cat_name">Namn på kategori:</label>
+                        <input type="text" name="cat_name" id="cat_name" maxlength="32" required><br>
+                        <label for="cat_desc">Beskrivning:</label>
+                        <input type="text" name="cat_desc" id="cat_desc" maxlength="128">
+                        <input type="hidden" id="formId" name="formId" value="3">
+                        <br>
+                        <br>
+                        <input type="reset" class="button" value="Rensa">
+                        <input type="submit" class="button" id="cat_create" value="Skicka">
+                        <br>
+                        <span class="message" id="cat_createmessage"><%= cat_message %></span>
+                    </fieldset>
+                </form>
+            </section>
+        <% } %>
 <%- include('./partials/footer')  %>

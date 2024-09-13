@@ -3,37 +3,38 @@
             <p>För att logga in behöver du ett konto, om du inte har ett kan du skapa det under rubriken <a href="#create">skapa konto</a> nedan.</p>
             <h3 id="login">Logga in</h3>
             <p>Logga in genom att skriva ditt namn och lösenord i nedanstående formulär.</p>
-            <form action="/admin" method="post">
+            <form action="/login" method="POST">
                 <fieldset>
                     <legend>Logga in:</legend>
                     <label for="username">Användarnamn:</label>
-                    <input type="text" id="username" name="username" maxlength="32" required>
+                    <input type="text" id="username" name="username" maxlength="32" required autocomplete="username">
                     <br>
                     <label for="password">Lösenord:</label>
-                    <input type="password" id="password" name="password" maxlength="128" required>
+                    <input type="password" id="password" name="password" maxlength="128" required autocomplete="current-password">
                     <br>
                     <br>
                     <input type="reset" value="Rensa" class="button">
                     <input type="submit" value="Logga in" id="login" class="button">
+                    <span id="loginmessage"><%= loginmessage %></span>
                 </fieldset>
             </form>
 
             <h3 id="create">Skapa konto</h3>
             <p>För att skapa ett konto kan formuläret nedan användas. ett användarnamn måste vara 4-32 tecken och ett lösenord måste vara 16-128 tecken.</p>
-            <form action="/admin" method="post">
+            <form action="/create" method="POST">
                 <fieldset>
                     <legend>Skapa konto:</legend>
-                    <label for="username">Användarnamn:</label>
-                    <input type="text" id="username" name="username" maxlength="32" required>
+                    <label for="create_username">Användarnamn:</label>
+                    <input type="text" id="create_username" name="create_username" maxlength="32" required autocomplete="username">
                     <br>
-                    <label for="password">Lösenord:</label>
-                    <input type="password" id="password" name="password" maxlength="128" required>
+                    <label for="create_password">Lösenord:</label>
+                    <input type="password" id="create_password" name="create_password" maxlength="128" required autocomplete="new-password">
                     <br>
                     <br>
                     <input type="reset" value="Rensa" class="button">
                     <input type="submit" value="Skapa konto" id="createaccount" class="button">
                     <br>
-                    <span id="registermessage"></span>
+                    <span id="registermessage"><%= registermessage %></span>
                 </fieldset>
             </form>
 <%- include('./partials/footer')  %>
