@@ -9,6 +9,8 @@
 const foodUrl = "http://127.0.0.1:4000/api/food";
 const catUrl = "http://127.0.0.1:4000/api/category";
 let globalMonday = new Date();
+let lunchfail = false;
+let catfail = false;
 
 //On load run init.
 window.onload = init();
@@ -32,6 +34,7 @@ function getWeeklyMenu(weekID) {
     fetch(foodUrl + "/week/" + weekID)
     .then(response => {
         if(response.status != 200) {
+            lunchfail = true;
             return
         }
         return response.json()
@@ -45,6 +48,7 @@ function getCategories() {
     fetch(catUrl + "/all")
     .then(response => {
         if (response.status != 200) {
+            catfail = true;
             return
         }
         return response.json()
@@ -58,6 +62,7 @@ function getCategoryItems(category_id) {
     fetch(foodUrl + "/cat/" + category_id)
     .then(response => {
         if(response.status != 200) {
+            catfail = true;
             return
         }
         return response.json()
@@ -126,6 +131,10 @@ function printCategories(categoriesArray) {
     
     //Make sure div is cleared so a new call to function clears list.
     divElement.innerHTML = "";
+    
+    //Add header and general info.
+    divElement.innerHTML += `<h3 id="other">Övrig meny</h3><p>Utöver dagens lunch finns en meny med övriga rätter som alltid är tillgänglig.</p>`;
+
 
     //Foreach loop to print all categories.
     categoriesArray.forEach(category => {
@@ -200,13 +209,27 @@ function printButtons(categoryArray) {
     //Make sure div is empty so a new call drops everything and starts from skratch.
     divElement.innerHTML = "";
 
-    //Add lunch-button
-    divElement.innerHTML += `<a href="#lunch" class="button">Veckans lunch</a>`;
+    if(lunchfail) {
+        divElement.innerHTML += "<p>Något gick fel när lunchmenyn hämtades.</p>";
+    } else {
+        //Add lunch-button
+        divElement.innerHTML += `<a href="#lunch" class="button">Veckans lunch</a>`;
+    }
+    
+    if(catfail) {
+        divElement.innerHTML += "<p>Något gick fel när menykategorierna hämtades.</p>";
+    } else {
+        //Add other category-buttons.
+        categoryArray.forEach(category => {
+            divElement.innerHTML += `<a href="#hcat${category.category_id}" class="button">${category.name}</a>`;
+        });
+    }
 
-    //Add other category-buttons.
-    categoryArray.forEach(category => {
-        divElement.innerHTML += `<a href="#hcat${category.category_id}" class="button">${category.name}</a>`;
-    });
+    if(catfail || lunchfail) {
+        //Nothing happens here.
+    } else {
+        divElement.innerHTML += `<a href="#maincontent" class="button" id="topbutton">Tillbaka till toppen</a>`
+    }
 }
 
 //Calculate ID for weekly menu this is copypaste from the function in the API.
