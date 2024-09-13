@@ -5,24 +5,25 @@
  
  //General layout of tables
  table {
-
     width: 100%;
 
     tr:nth-child(even) {
         background-color: $dark-primary-color;
     }
-    
+
+    tr:hover, tr:focus-within {
+        background-color: $light-secondary-color;
+    }
+
     th {
         border-bottom: 2px $theme-secondary-color solid;
         text-align: left;
+        position: sticky;
+        top: 0;
+        background-color: $theme-primary-color;
     }
 
     td, th {
         padding-right: 10px;
-    }
-
-    .button {
-        font-size: 1em;
-        padding: 10px;
     }
 }

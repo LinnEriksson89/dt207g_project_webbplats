@@ -13,12 +13,13 @@
     border-radius: $button-border-radius;
     padding: 10px 15px;
     margin: 1%;
+    text-decoration: none;
 }
 
 //Make the links on the menu page float left in case they are too wide
 //Make them look more like buttons.
 //Make them sticky so they can be used even when scrolling, and to look like a navbar they need background.
-#menuButtons, #adminbuttons {
+#menuButtons {
     position: sticky;
     top: 0;
     background-color: $theme-primary-color;
@@ -32,7 +33,7 @@
 
 
 //Remove float after row of buttons.
-#menuButtons::after, #adminbuttons::after {
+#menuButtons::after {
     content: "";
     clear: both;
     display: table;

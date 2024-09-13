@@ -1,0 +1,53 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+
+//Layout related to admin-pages.
+
+section {
+    border-bottom: 4px solid $red-details;
+    padding: $general-padding;
+}
+
+table {
+    
+    .button {
+        font-size: 1em;
+        padding: 10px;
+        display: block;
+    }
+}
+
+#adminbuttons {
+    //While they would be useful on mobile I can't get them to cooperate and admin-mode is useless in mobile anyway so...
+    display: none;
+}
+
+//Layout for larger screens.
+@media only screen and (min-width: $screen-min-width){
+   
+    main.admin {
+        padding: 0;
+    }
+    #wrapper {
+        max-width: 1200px;
+        border: 2px solid $theme-secondary-color;
+        margin: 0 auto 0 185px;
+    }
+
+    #adminbuttons{
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: $theme-primary-color;
+        border: 2px solid $theme-secondary-color;
+
+        .button {
+            display: block;
+            font-size: 1.6em;
+        }
+    }
+    
+}

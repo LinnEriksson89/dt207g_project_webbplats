@@ -1,0 +1,11 @@
+/* DT207G - Backend-baserad webbutveckling
+ * Project
+ * Linn Eriksson, VT24
+ */
+
+//Ugly hack to increase readability of public menu.
+#menuItems{
+    border-top: 5px dotted $theme-secondary-color;
+    padding-top: 15px;
+    margin-top: 30px;
+}
