@@ -15,7 +15,7 @@ const files = {
     sassPath: "src/css/**/*.scss",
     imagePath: "src/images/*",
     ejsPath: "src/views/*.ejs",
-    partialsPath: "src/views/partials/*ejs",
+    partialsPath: "src/views/partials/*.ejs",
     jsPath: "src/js/**/*.js"
 }
 

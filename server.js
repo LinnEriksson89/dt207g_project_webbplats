@@ -152,8 +152,6 @@ app.get("/admin", (req, res) => {
                             weekdays = data.weekdays;
                             prio = data.prio;
 
-                            //console.log(`foodUrl = ${foodUrl}, lunchUrl = ${lunchUrl}, catUrl = ${catUrl}, weekdays = ${weekdays}, prio = ${prio}`);
-
                             //Fetch all data wrapped in promises.
                             Promise.all([
                                 //Fetches with the URLs we got.

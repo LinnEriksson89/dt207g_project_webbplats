@@ -3,7 +3,9 @@ Webbplats för projektet i Backend-baserad Webbutveckling.
 
 Krav på webbplats:
 * Publik sida som hämtar data från webbservice
-* Admin sida med skyddat innehåll.
+* Adminsida med skyddat innehåll.
+
+Adminsidan kommer man åt genom att klicka på hjärtat i nedre högra hörnet av headern.
 
 ## Funktionalitet
 På webbplatsen kan man:
@@ -14,3 +16,5 @@ På webbplatsen kan man:
 * Lägga till, uppdatera och radera lunchrätter.
 * Lägga till, uppdatera och radera övriga maträtter.
 * Lägga till, uppdatera och radera kategorier för övriga maträtter.
+
+Om man råkar skriva in en felaktig länk visas en 404-sida.
