@@ -7,6 +7,9 @@ Krav på webbplats:
 
 Adminsidan kommer man åt genom att klicka på hjärtat i nedre högra hörnet av headern.
 
+## Installation
+För att köra denna webbsida lokalt kan man klona ner detta repo och köra "npm install" för att installera nödvändiga npm-paket. Efter detta kan man starta servern med kommandot "npm run dev".
+
 ## Funktionalitet
 På webbplatsen kan man:
 * Se menyer som besökare.
